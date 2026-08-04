@@ -1,0 +1,23 @@
+{
+  "name": "nursery-bot",
+  "version": "1.0.0",
+  "description": "Kids Area & Nursery Telegram bot - Place/Role menus, Telegraf Scenes/Wizards, deployable to Vercel via webhooks",
+  "main": "src/bot.ts",
+  "scripts": {
+    "dev": "ts-node src/dev.ts",
+    "build": "tsc",
+    "set-webhook": "ts-node scripts/setWebhook.ts",
+    "delete-webhook": "ts-node scripts/deleteWebhook.ts"
+  },
+  "dependencies": {
+    "telegraf": "^4.16.3",
+    "dotenv": "^16.4.5",
+    "@upstash/redis": "^1.34.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.12.7",
+    "@vercel/node": "^3.2.0"
+  }
+}

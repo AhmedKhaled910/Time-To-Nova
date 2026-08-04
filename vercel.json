@@ -1,0 +1,4 @@
+{
+  "buildCommand": "echo 'No build step needed - api/ functions are compiled automatically by Vercel'",
+  "outputDirectory": "public"
+}
