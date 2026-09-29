@@ -65,16 +65,16 @@ export const parentEntryScene = new Scenes.WizardScene<Scenes.WizardContext>(
     }
     (ctx.wizard.state as any).data.childAge = age;
 
-    if (age < 5) {
+    if (age < 6) {
       (ctx.wizard.state as any).data.needsCaregiverCheck = true;
       await ctx.reply(
-        'Since the child is under 5, a caregiver must remain on-site for the full visit.\nWill a caregiver be staying?',
+        'Since the child is under 6, a caregiver must remain on-site for the full visit.\nWill a caregiver be staying?',
         yesNoKeyboard()
       );
       return ctx.wizard.next();
     } else {
       (ctx.wizard.state as any).data.needsCaregiverCheck = false;
-      await ctx.reply('✅ Independent entry approved (age 5+).');
+      await ctx.reply('✅ Independent entry approved (age 6+).');
       await ctx.reply('How long will the child be staying?', durationKeyboard());
       return ctx.wizard.selectStep(ctx.wizard.cursor + 2);
     }
@@ -85,7 +85,7 @@ export const parentEntryScene = new Scenes.WizardScene<Scenes.WizardContext>(
     const text = (ctx.message as any)?.text;
     if (isNo(text)) {
       await ctx.reply(
-        '⚠️ Entry cannot proceed. Children under 5 require an on-site caregiver.',
+        '⚠️ Entry cannot proceed. Children under 6 require an on-site caregiver.',
         operationalMenuKeyboard((ctx as any).session?.place, (ctx as any).session?.role)
       );
       return ctx.scene.leave();
